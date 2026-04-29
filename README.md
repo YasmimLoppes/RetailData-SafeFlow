@@ -2,10 +2,20 @@
 
 ![Banner](img/banner.png)
 
-## 📝 Sobre o Projeto
-O **RetailData-SafeFlow** é uma solução de engenharia de dados desenvolvida para enfrentar o desafio de dados inconsistentes em ambientes de varejo. O foco principal é a **integridade financeira**, garantindo que métricas estratégicas não sejam distorcidas por registros duplicados ou valores inválidos.
+## 💡 Por que este projeto existe? (Contexto de Negócio)
+No setor de varejo, a tomada de decisão é baseada em volume de vendas e margens de lucro. Um erro comum é a presença de **dados sujos ou duplicados**, que podem levar a empresa a investir em campanhas de marketing erradas ou projetar lucros inexistentes.
 
-Este projeto demonstra a construção de um pipeline de dados end-to-end, unindo automação, tratamento de dados e práticas de governança.
+Criei o **SafeFlow** para resolver o problema da "falta de confiança nos números". O objetivo não é apenas mover dados, mas garantir que cada linha de informação financeira que chega ao dashboard do gestor seja **auditada e confiável**.
+
+## 🏗️ Arquitetura e Solução Técnica
+O pipeline foi desenhado seguindo as melhores práticas de **DataOps**:
+
+*   **Ingestão**: Coleta de dados brutos de vendas (simulando PDVs de varejo).
+*   **Orquestração (Airflow)**: O fluxo é automatizado para rodar em intervalos definidos, garantindo que os dados estejam sempre atualizados sem intervenção manual.
+*   **Camada de Qualidade (Python/Pandas)**: 
+    *   **Deduplicação Crítica**: Remoção de transações idênticas para não inflar o faturamento.
+    *   **Saneamento**: Tratamento de valores nulos e correção de tipos de dados (Garantindo que datas sejam datas e valores sejam decimais).
+*   **Carga (Load)**: Os dados limpos são estruturados para análise, prontos para alimentar modelos de previsão de demanda ou análise de marketing analytics.
 
 ## 🎯 Objetivos de Negócio
 *   **Confiabilidade**: Garantir que o time de marketing e finanças trabalhe com dados 100% validados.
@@ -34,4 +44,4 @@ Este projeto demonstra a construção de um pipeline de dados end-to-end, unindo
 4. Acesse a interface do Airflow e ative a DAG `retail_safeflow_pipeline`.
 
 ---
-Desenvolvido por **Yasmim Lopes** — Focada em transformar dados brutos em inteligência de negócio robusta.
+Desenvolvido por **Yasmim Lopes** | Focada em transformar dados brutos em inteligência de negócio robusta.
